@@ -387,6 +387,33 @@
   .schedule-box .row{display:flex;justify-content:space-between;font-size:13.5px;color:var(--ink-70);padding:6px 0;}
   .schedule-box .row + .row{border-top:1px solid rgba(255,255,255,.08);}
 
+  /* ---------- Reseña / QR ---------- */
+  .resena-card{
+    padding:40px 44px;
+    display:grid;grid-template-columns:1fr auto;gap:36px;align-items:center;
+  }
+  @media (max-width:700px){
+    .resena-card{grid-template-columns:1fr;text-align:center;padding:34px 26px;}
+    .resena-card .qr-box{margin:0 auto;}
+  }
+  .resena-text .section-tag{margin-bottom:12px;}
+  .resena-text h2{font-size:clamp(22px,3vw,30px);font-weight:700;letter-spacing:-.015em;margin-bottom:12px;}
+  .resena-text p{font-size:15px;color:var(--ink-70);line-height:1.65;max-width:420px;}
+  .qr-box{
+    background:var(--white);
+    padding:16px;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35), 0 0 0 1px rgba(255,255,255,.6) inset;
+    display:flex;flex-direction:column;align-items:center;
+    gap:10px;
+    flex-shrink:0;
+  }
+  .qr-box img{width:160px;height:160px;display:block;border-radius:6px;}
+  .qr-box span{
+    font-size:11.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;
+    color:var(--navy-900);
+  }
+
   /* ---------- Footer ---------- */
   footer{padding:34px 0 40px;text-align:center;}
   footer p{font-size:12.5px;color:var(--ink-50);line-height:1.8;}
@@ -414,6 +441,7 @@
       <li><a href="#porque">¿Por qué elegirnos?</a></li>
       <li><a href="#proyectos">Proyectos</a></li>
       <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#resena">Reseñas</a></li>
       <li><a href="#contacto" class="nav-cta">Cotizar</a></li>
     </ul>
   </nav>
@@ -702,6 +730,25 @@
 
         <a href="https://wa.me/51908818589" target="_blank" rel="noopener" class="btn-primary">Escribir por WhatsApp</a>
         <a href="mailto:eduards1201@hotmail.com" class="btn-ghost">Enviar correo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="current-line"></div>
+
+<!-- RESEÑA / QR -->
+<section id="resena">
+  <div class="wrap">
+    <div class="resena-card glass">
+      <div class="resena-text">
+        <span class="section-tag">Tu opinión nos importa</span>
+        <h2>Déjanos tu reseña</h2>
+        <p>Escanea el código QR con la cámara de tu celular y cuéntanos qué te pareció nuestro servicio. Tu opinión nos ayuda a seguir mejorando.</p>
+      </div>
+      <div class="qr-box">
+        <img src="data:image/png;base64,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" alt="Código QR para dejar una reseña de ESELEC E.I.R.L.">
+        <span>Escanéame</span>
       </div>
     </div>
   </div>
