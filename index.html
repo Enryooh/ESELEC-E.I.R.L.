@@ -28,14 +28,76 @@
 
   body{
     font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    background:
-      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(231,184,84,.14), transparent 60%),
-      radial-gradient(ellipse 800px 600px at 110% 20%, rgba(21,53,96,.55), transparent 55%),
-      linear-gradient(165deg, var(--navy-900) 0%, var(--navy-800) 45%, #0C213E 75%, var(--navy-900) 100%);
-    background-attachment:fixed;
+    background:var(--navy-900);
     color:var(--white);
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
+    position:relative;
+  }
+
+  /* ---------- Fondo animado (orbes difuminados) ---------- */
+  .bg-fx{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    overflow:hidden;
+    pointer-events:none;
+    background:linear-gradient(165deg, var(--navy-900) 0%, var(--navy-800) 45%, #0C213E 75%, var(--navy-900) 100%);
+  }
+  .bg-fx .orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(95px);
+    will-change:transform;
+    mix-blend-mode:screen;
+  }
+  .orb-1{
+    width:620px;height:620px;top:-180px;left:-140px;
+    background:radial-gradient(circle, rgba(21,53,96,.95) 0%, transparent 72%);
+    animation:float1 28s ease-in-out infinite;
+  }
+  .orb-2{
+    width:520px;height:520px;top:8%;right:-180px;
+    background:radial-gradient(circle, rgba(231,184,84,.30) 0%, transparent 72%);
+    animation:float2 34s ease-in-out infinite;
+  }
+  .orb-3{
+    width:580px;height:580px;bottom:-220px;left:6%;
+    background:radial-gradient(circle, rgba(15,39,72,.95) 0%, transparent 72%);
+    animation:float3 40s ease-in-out infinite;
+  }
+  .orb-4{
+    width:440px;height:440px;bottom:6%;right:2%;
+    background:radial-gradient(circle, rgba(246,216,136,.20) 0%, transparent 72%);
+    animation:float4 31s ease-in-out infinite;
+  }
+  .orb-5{
+    width:380px;height:380px;top:42%;left:38%;
+    background:radial-gradient(circle, rgba(231,184,84,.14) 0%, transparent 72%);
+    animation:float5 36s ease-in-out infinite;
+  }
+  @keyframes float1{
+    0%,100%{transform:translate(0,0) scale(1);}
+    50%{transform:translate(90px,70px) scale(1.18);}
+  }
+  @keyframes float2{
+    0%,100%{transform:translate(0,0) scale(1);}
+    50%{transform:translate(-90px,100px) scale(1.12);}
+  }
+  @keyframes float3{
+    0%,100%{transform:translate(0,0) scale(1);}
+    50%{transform:translate(70px,-60px) scale(1.22);}
+  }
+  @keyframes float4{
+    0%,100%{transform:translate(0,0) scale(1);}
+    50%{transform:translate(-60px,-70px) scale(1.14);}
+  }
+  @keyframes float5{
+    0%,100%{transform:translate(-50%,-50%) scale(1);}
+    50%{transform:translate(-40%,-58%) scale(1.25);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .bg-fx .orb{animation:none;}
   }
 
   a{color:inherit;text-decoration:none;}
@@ -422,6 +484,15 @@
 </style>
 </head>
 <body>
+
+<div class="bg-fx" aria-hidden="true">
+  <span class="orb orb-1"></span>
+  <span class="orb orb-2"></span>
+  <span class="orb orb-3"></span>
+  <span class="orb orb-4"></span>
+  <span class="orb orb-5"></span>
+</div>
+
 
 <header>
   <nav>
